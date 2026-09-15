@@ -1,0 +1,12 @@
+{{ $imgPath := .Destination }}
+{{ if and (not (hasPrefix $imgPath "/")) (not (hasPrefix $imgPath "http://")) (not (hasPrefix $imgPath "https://")) }}
+  {{ $imgPath = path.Join "/" .Page.File.Dir $imgPath }}
+{{ end }}
+{{ if .Title }}
+  <figure>
+    <img src="{{ $imgPath | safeURL }}" alt="{{ .Text }}">
+    <figcaption>{{ .Title }}</figcaption>
+  </figure>
+{{ else }}
+  <img src="{{ $imgPath | safeURL }}" alt="{{ .Text }}">
+{{ end }}

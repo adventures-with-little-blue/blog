@@ -1,0 +1,58 @@
+{{ define "header" }}
+  {{ partials.Include "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $page := . }}
+  {{ $section := .Site.GetPage "section" .Section }}
+  <article class="flex-l mw9 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+        {{ .CurrentSection.Title }}
+      </aside>
+      {{- partials.IncludeCached "social/share.html" . . -}}
+      {{ with .Params.author | compare.Default .Site.Params.author }}
+      <p class="tracked">
+        {{- if compare.Eq $page.Language "de" "en" "es" "fr" "it" "no" "pt" -}}
+          {{- lang.Translate "by" -}}
+        {{ end -}} <strong>
+        {{- if reflect.IsSlice . -}}
+          {{ collections.Delimit . ", " | transform.Markdownify }}
+        {{- else -}}
+          {{ . | transform.Markdownify }}
+        {{- end -}}
+        </strong>
+      </p>
+      {{ end }}
+      {{ if not .Date.IsZero }}
+      <time class="f6 mv4 dib tracked" {{ fmt.Printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safe.HTMLAttr }}>
+        {{- .Date | time.Format (compare.Default "January 2, 2006" .Site.Params.date_format) -}}
+      </time>
+      {{ end }}
+      {{ if (or (compare.Eq (.Param "show_reading_time") true) (compare.Eq $section.Params.show_reading_time true) )}}
+        <span class="f6 mv4 dib tracked"> - {{ lang.Translate "readingTime" .ReadingTime }} </span>
+        <span class="f6 mv4 dib tracked"> - {{ lang.Translate "wordCount" .WordCount }} </span>
+      {{ end }}
+    </header>
+
+    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes" | compare.Default "serif" }} f4 nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }} {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
+      {{- .Content -}}
+      {{- partials.Include "tags.html" . -}}
+
+      {{ if gt (len .Paginator.Pages) 0 }}
+      <div class="mt5 sans-serif">
+        {{ range .Paginator.Pages }}
+          <div class="mb4 relative bg-white">
+            {{ .Render "summary" }}
+          </div>
+        {{ end }}
+        {{ partial "pagination.html" . -}}
+      </div>
+      {{ end }}
+    </div>
+
+    <aside class="w-30-l mt6-l">
+      {{- partials.Include "menu-contextual.html" . -}}
+    </aside>
+  </article>
+{{ end }}

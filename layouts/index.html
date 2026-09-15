@@ -1,0 +1,46 @@
+{{ define "main" }}
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+    {{ .Content }}
+  </article>
+
+  {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
+  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
+  {{ $show_recent_posts := site.Params.ananke.show_recent_posts }}
+  {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
+  {{ $section_count := len $section }}
+
+  {{ if and ($show_recent_posts) (compare.Ge $section_count 1) }}
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      {{ $n_posts := $.Param "recent_posts_number" | compare.Default 3 }}
+
+      <section class="w-100 mw9">
+        {{/* Range through the first $n_posts items of the section */}}
+        {{ range (collections.First $n_posts $section) }}
+          <div class="w-100 mb4 relative">
+            {{ .Render "summary-with-image" }}
+          </div>
+        {{ end }}
+      </section>
+
+      {{ if compare.Ge $section_count (math.Add $n_posts 1) }}
+        <section class="w-100">
+          <h1 class="f3">{{ lang.Translate "more" }}</h1>
+          {{/* Group the remaining posts by year after the featured recent posts. */}}
+          {{ $olderPosts := collections.First 200 (collections.After $n_posts $section) }}
+          {{ range $olderPosts.GroupByDate "2006" }}
+            <h2 class="f4 mt4 mb2 i">{{ .Key }}</h2>
+            {{ range .Pages }}
+              <h3 class="f5 fw4 mb1 dib bl bb b--lightest-blue {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "ml3" "mr3" }}">
+                <a href="{{ .RelPermalink }}" class="link black dim" title="{{ .Date | time.Format (compare.Default "January 2, 2006" .Site.Params.date_format) }}">
+                  {{ .Title }}
+                </a>
+              </h3>
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+
+    </div>
+  {{ end }}
+{{ end }}
+
