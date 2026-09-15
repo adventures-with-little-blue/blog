@@ -1,4 +1,5 @@
 defaultContentLanguage: sv
+baseURL: "http://localhost:1313/"
 theme: ananke
 resourceDir: static
 copyright: "Kjell"

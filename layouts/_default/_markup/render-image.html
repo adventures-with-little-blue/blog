@@ -4,7 +4,7 @@
   {{ if not (hasPrefix $imgPath "/") }}
     {{ $imgPath = path.Join "/" .Page.File.Dir $imgPath }}
   {{ end }}
-  {{ $imgPath = $imgPath | relURL }}
+  {{ $imgPath = $imgPath | strings.TrimPrefix "/" | absURL }}
 {{ end }}
 {{ if .Title }}
   <figure>

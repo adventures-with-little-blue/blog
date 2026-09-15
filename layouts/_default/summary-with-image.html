@@ -1,7 +1,7 @@
 {{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
 {{ $featured_image_url := $featured_image }}
 {{ if and $featured_image (not (or (hasPrefix $featured_image "http://") (hasPrefix $featured_image "https://"))) }}
-  {{ $featured_image_url = $featured_image | relURL }}
+  {{ $featured_image_url = $featured_image | strings.TrimPrefix "/" | absURL }}
 {{ end }}
 <article class="bb b--black-10">
   <div class="db pv4 ph3 ph0-l dark-gray no-underline">
