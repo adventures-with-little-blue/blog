@@ -1,6 +1,10 @@
 {{ $imgPath := .Destination }}
-{{ if and (not (hasPrefix $imgPath "/")) (not (hasPrefix $imgPath "http://")) (not (hasPrefix $imgPath "https://")) }}
-  {{ $imgPath = path.Join "/" .Page.File.Dir $imgPath }}
+{{ $isExternal := or (hasPrefix $imgPath "http://") (hasPrefix $imgPath "https://") }}
+{{ if not $isExternal }}
+  {{ if not (hasPrefix $imgPath "/") }}
+    {{ $imgPath = path.Join "/" .Page.File.Dir $imgPath }}
+  {{ end }}
+  {{ $imgPath = $imgPath | relURL }}
 {{ end }}
 {{ if .Title }}
   <figure>
