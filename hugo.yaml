@@ -9,19 +9,19 @@ languages:
     locale: sv
     weight: 1
     title: Äventyr med Lilla Blue
-    contentdir: content\sv
+    contentdir: content/sv
   fi:
     label: Suomi
     locale: fi
     weight: 2
     title: Seikkailuja Pikku-Bluen kanssa
-    contentdir: content\fi
+    contentdir: content/fi
   en:
     label: English
     locale: en
     weight: 3
     title: Adventures with Little Blue
-    contentdir: content\en
+    contentdir: content/en
 
 sitemap:
   changefreq: monthly
