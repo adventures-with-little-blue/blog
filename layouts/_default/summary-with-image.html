@@ -1,8 +1,4 @@
 {{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
-{{ $featured_image_url := $featured_image }}
-{{ if and $featured_image (not (or (hasPrefix $featured_image "http://") (hasPrefix $featured_image "https://"))) }}
-  {{ $featured_image_url = $featured_image | strings.TrimPrefix "/" | absURL }}
-{{ end }}
 <article class="bb b--black-10">
   <div class="db pv4 ph3 ph0-l dark-gray no-underline">
     <div class="flex-column flex-row-ns flex">
@@ -10,7 +6,7 @@
           {{/* Trimming the slash and adding absURL make sure the image works no matter collections.Where our site lives */}}
         <div class="{{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3-ns" "pr3-ns" }} mb4 mb0-ns w-100 w-40-ns">
           <a href="{{.RelPermalink}}" class="db grow">
-            <img src="{{ $featured_image_url }}" class="img" alt="image from {{ .Title }}">
+            <img src="{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
           </a>
         </div>
       {{ end }}
