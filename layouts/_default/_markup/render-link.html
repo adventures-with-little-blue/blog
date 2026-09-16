@@ -2,4 +2,4 @@
 {{ $linkURL := urls.Parse $destination }}
 {{ $siteURL := urls.Parse .Page.Site.BaseURL }}
 {{ $isExternal := and $linkURL.Host (or (not $siteURL.Host) (ne $linkURL.Host $siteURL.Host)) }}
-<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>
+<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}{{ if $isExternal }}<svg class="external-link-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M14 3v2h3.59L7.29 15.29l1.42 1.42L19 6.41V10h2V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5z"/></svg><span class="external-link-label"> ({{ i18n "opensInNewTab" }})</span>{{ end }}</a>

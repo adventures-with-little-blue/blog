@@ -1,0 +1,17 @@
+{{- $id := strings.TrimSpace (.Get "id" | default (.Get 0)) -}}
+{{- if not $id -}}
+  {{- errorf "youtube-short shortcode in %q requires a YouTube Short video ID" .Page.File.Path -}}
+{{- end -}}
+{{- if not (findRE `^[A-Za-z0-9_-]{11}$` $id) -}}
+  {{- errorf "youtube-short shortcode in %q received an invalid YouTube Short video ID: %q" .Page.File.Path $id -}}
+{{- end -}}
+{{- $title := .Get "title" | default "YouTube Short" -}}
+<div style="position: relative; width: 100%; max-width: 360px; aspect-ratio: 9 / 16; margin: 1.5rem auto;">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/{{ $id }}"
+    title="{{ $title }}"
+    style="position: absolute; width: 100%; height: 100%; border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
