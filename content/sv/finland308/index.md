@@ -4,7 +4,7 @@ date: '2026-09-20'
 menu:
   main:
     weight: 2
-featured_image: '../cover.jpg'
+featured_image: '/cover.jpg'
 tags:
   - finland308
 outputs:
