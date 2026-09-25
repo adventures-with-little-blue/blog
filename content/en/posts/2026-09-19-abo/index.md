@@ -1,7 +1,6 @@
 ---
 title: 'The season’s last long ride'
 date: '2026-09-19'
-draft: true
 featured_image: '39-abo_slott4.jpg'
 tags:
   - finland308
