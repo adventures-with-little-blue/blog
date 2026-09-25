@@ -30,7 +30,7 @@ Jag har främst fotat lutherska kyrkor, men också ortodoxa kyrkor och tsasounor
 
 ### [Birkaland](birkaland)
 
-### Egentliga Finland
+### [Egentliga Finland](egentligafinland)
 
 ### [Egentliga Tavastland](egentligatavastland)
 
@@ -65,4 +65,3 @@ Jag har främst fotat lutherska kyrkor, men också ortodoxa kyrkor och tsasounor
 ### Åland
 
 ### [Österbotten](osterbotten)
-

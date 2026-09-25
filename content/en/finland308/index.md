@@ -1,6 +1,6 @@
 ---
 title: 'Finland/308'
-date: '2026-08-23'
+date: '2026-09-20'
 menu:
   main:
     weight: 2
@@ -16,13 +16,13 @@ My long-term goal is to visit all municipalities in Finland together with Little
 <!--more-->
 
 ### Status
-_Status as of August 22, 2026_
+_Status as of September 20, 2026_
 
-Little Blue and I have together visited 239 of Finland's 308 municipalities. This is how many municipalities we have visited for the first time each year:
+Little Blue and I have together visited 250 of Finland's 308 municipalities. This is how many municipalities we have visited for the first time each year:
 * 2023 - 10 municipalities
 * 2024 - 43 municipalities
 * 2025 - 108 municipalities
-* 2026 - 78 municipalities
+* 2026 - 89 municipalities
 
 ![Visited municipalities](map_visited.webp)
 
@@ -41,7 +41,7 @@ We have visited every municipality in the following regions:
 * Kanta-Häme - 11 municipalities (22 Aug 2026)
 
 We have visited at least one municipality in the following regions:
-* Southwest Finland - 3/27 municipalities
+* Southwest Finland - 14/27 municipalities
 * Kainuu - 5/8 municipalities
 * Lapland - 14/21 municipalities
 * North Savo - 13/19 municipalities

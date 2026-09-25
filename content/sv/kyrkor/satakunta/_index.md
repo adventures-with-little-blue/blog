@@ -12,6 +12,7 @@ draft: true
 # Finlands kyrkor - Satakunda
 
 ### Björneborg
+![Björneborgs centrala kyrka](/posts/2026-09-19-abo/56-centrala_bjorneborgs_kyrka.jpg "Björneborgs centrala kyrka, 19.9.2026")
 ![Norrmark kyrka](/posts/2026-08-08-natur-glas-bilar/01-norrmark_kyrka.jpg "Norrmark kyrka, 8.8.2026")
 
 ---
@@ -21,6 +22,8 @@ draft: true
 ---
 
 ### Euraåminne (Eurajoki)
+![Euraåminne kyrka](/posts/2026-09-19-abo/55-euraaminne_kyrka.jpg "Gustav Adolfs kyrka, Euraåminne, 19.9.2026")
+![Luvia kyrka](/posts/2026-09-19-abo/03-luvia_kyrka.jpg "Luvia kyrka, 19.9.2026")
 
 ---
 
@@ -55,7 +58,9 @@ draft: true
 ---
 
 ### Raumo (Rauma)
-- Raumo kyrka (30.5.2025)
+![Kodisjoki kyrka](/posts/2026-09-19-abo/52-kodisjoki_kyrka.jpg "Kodisjoki kyrka, 19.9.2026")
+![Lappi kyrka](/posts/2026-09-19-abo/53-lappi_kyrka.jpg "Lappi kyrka, 19.9.2026")
+![Helga Korskyrkan](/posts/2026-09-19-abo/05-raumo_helga_kors_kyrkan.jpg "Helga Korskyrkan, Raumo, 19.9.2026")
 
 ---
 
